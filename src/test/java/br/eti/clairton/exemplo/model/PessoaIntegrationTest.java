@@ -1,4 +1,4 @@
-package br.eti.clairton.bootstrap;
+package br.eti.clairton.exemplo.model;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,6 +10,8 @@ import org.junit.Test;
 import org.junit.rules.TestRule;
 import org.junit.runner.RunWith;
 
+import br.eti.clairton.exemplo.FixtureRule;
+import br.eti.clairton.exemplo.model.Pessoa;
 import br.eti.clairton.repository.Repository;
 
 

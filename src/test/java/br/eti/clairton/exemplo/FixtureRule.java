@@ -1,4 +1,4 @@
-package br.eti.clairton.bootstrap;
+package br.eti.clairton.exemplo;
 
 import static br.eti.clairton.migrator.Config.DROP;
 import static br.eti.clairton.migrator.Config.POPULATE;

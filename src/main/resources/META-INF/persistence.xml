@@ -5,9 +5,9 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
-	<persistence-unit name="bootstrap" transaction-type="JTA">
+	<persistence-unit name="exemplo" transaction-type="JTA">
 		<jta-data-source>java:/jdbc/datasources/BootstrapDS</jta-data-source>
-		<class>br.eti.clairton.bootstrap.Pessoa</class>
+		<class>br.eti.clairton.exemplo.model.Pessoa</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />

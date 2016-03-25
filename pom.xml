@@ -20,7 +20,7 @@
 		<hibernate.validator.version>5.2.3.Final</hibernate.validator.version>
 		<hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
 		<dbunit.version>2.5.0</dbunit.version>
-		<deltaspike.version>1.5.2</deltaspike.version>
+		<deltaspike.version>1.5.4</deltaspike.version>
 		<context.root>/boostrap</context.root>
 		<virtual.host>default-host</virtual.host>
 		<environment>develoment</environment>
@@ -89,7 +89,7 @@
 		<dependency>
 			<groupId>br.eti.clairton</groupId>
 			<artifactId>tenant</artifactId>
-			<version>1.0.0</version>
+			<version>1.1.0-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
@@ -107,7 +107,13 @@
 		<dependency>
 			<groupId>br.eti.clairton</groupId>
 			<artifactId>repository</artifactId>
-			<version>1.2.1</version>
+			<version>2.0.0-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>br.eti.clairton</groupId>
+			<artifactId>repository-tenant</artifactId>
+			<version>0.1.0-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>

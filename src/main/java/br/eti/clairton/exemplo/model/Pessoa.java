@@ -1,4 +1,4 @@
-package br.eti.clairton.bootstrap;
+package br.eti.clairton.exemplo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

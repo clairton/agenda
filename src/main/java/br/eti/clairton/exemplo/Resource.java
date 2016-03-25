@@ -1,4 +1,4 @@
-package br.eti.clairton.bootstrap;
+package br.eti.clairton.exemplo;
 
 import static br.eti.clairton.inflector.Inflector.getForLocale;
 import static br.eti.clairton.inflector.Locale.pt_BR;
@@ -38,7 +38,7 @@ import net.vidageek.mirror.dsl.Mirror;
  */
 @ApplicationScoped
 public class Resource {
-	public static final String UNIT_NAME = "bootstrap";
+	public static final String UNIT_NAME = "exemplo";
 
 	public static final String ENVIROMENT_PARAM = "br.com.caelum.vraptor.environment";
 
