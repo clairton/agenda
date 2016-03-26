@@ -219,20 +219,6 @@
 			<artifactId>vraptor-test</artifactId>
 			<version>4.0.0</version>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>br.com.caelum</groupId>
-					<artifactId>vraptor</artifactId>
-				</exclusion>
-				<exclusion>
-					<artifactId>slf4j-log4j12</artifactId>
-					<groupId>org.slf4j</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>junit</artifactId>
-					<groupId>junit</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
