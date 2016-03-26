@@ -85,7 +85,7 @@ public class Resource {
 	public Connection getConnection() {
 		try {
 			final InitialContext context = new InitialContext();
-			final String jndi = "java:/jdbc/datasources/BootstrapDS";
+			final String jndi = "java:/jdbc/datasources/ExemploDS";
 			final DataSource dataSource = (DataSource) context.lookup(jndi);
 			return dataSource.getConnection();
 		} catch (final Exception e) {

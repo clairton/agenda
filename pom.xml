@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.eti.clairton</groupId>
-	<artifactId>boostrap</artifactId>
+	<artifactId>exemplo</artifactId>
 	<version>0.1.0-SNPASHOT</version>
 	<packaging>war</packaging>
 
@@ -122,44 +122,44 @@
 			<version>4.1.4</version>
 			<scope>compile</scope>
 		</dependency>
-			<dependency>
-				<groupId>org.apache.logging.log4j</groupId>
-				<artifactId>log4j-core</artifactId>
-				<version>2.5</version>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.logging.log4j</groupId>
-				<artifactId>log4j-1.2-api</artifactId>
-				<version>2.5</version>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<!-- DeltaSpike -->
-				<groupId>org.apache.logging.log4j</groupId>
-				<artifactId>log4j-jul</artifactId>
-				<version>2.5</version>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<!--HIBERNATE LOGGER (log4j) -->
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
-				<version>1.7.18</version>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>br.eti.clairton</groupId>
-				<artifactId>migrator</artifactId>
-				<version>1.1.0</version>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>br.eti.clairton</groupId>
-				<artifactId>hibernate-validator-utf8</artifactId>
-				<version>0.1.0</version>
-				<scope>compile</scope>
-			</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.5</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-1.2-api</artifactId>
+			<version>2.5</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<!-- DeltaSpike -->
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-jul</artifactId>
+			<version>2.5</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<!--HIBERNATE LOGGER (log4j) -->
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.18</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>br.eti.clairton</groupId>
+			<artifactId>migrator</artifactId>
+			<version>1.1.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>br.eti.clairton</groupId>
+			<artifactId>hibernate-validator-utf8</artifactId>
+			<version>0.1.0</version>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-digester3</artifactId>
@@ -335,22 +335,17 @@
 								<groupId>org.hsqldb</groupId>
 								<artifactId>hsqldb</artifactId>
 							</dependency>
-							<dependency>
-								<groupId>org.postgresql</groupId>
-								<artifactId>postgresql</artifactId>
-							</dependency>
 						</dependencies>
 					</container>
 					<configuration>
 						<properties>
-							<cargo.datasource.datasource.auth>
-								cargo.datasource.driver=org.hsqldb.jdbc.pool.JDBCXADataSource|
-								cargo.datasource.url=jdbc:hsqldb:mem:auth;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE|
-								cargo.datasource.jndi=java:/jdbc/datasources/AuthDS|
-								cargo.datasource.transactionsupport=XA_TRANSACTION
+							<cargo.datasource.datasource.exemplo>
+								cargo.datasource.driver=org.hsqldb.jdbc.JDBCDriver|
+								cargo.datasource.url=jdbc:hsqldb:mem:exemplo;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE|
+								cargo.datasource.jndi=java:/jdbc/datasources/ExemploDS|
 								cargo.datasource.username=sa|
 								cargo.datasource.password=
-							</cargo.datasource.datasource.auth>
+							</cargo.datasource.datasource.exemplo>
 							<cargo.jvmargs>
 								-Xmx1024m
 								-Xms256m
@@ -613,7 +608,7 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
