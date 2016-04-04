@@ -52,12 +52,6 @@
 		</dependency>
 		<dependency>
 			<groupId>br.eti.clairton</groupId>
-			<artifactId>vraptor-enum-controller</artifactId>
-			<version>0.1.0</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>br.eti.clairton</groupId>
 			<artifactId>unique-validator</artifactId>
 			<version>1.0.0</version>
 			<scope>compile</scope>
@@ -482,129 +476,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.3.2</version>
-				<executions>
-					<execution>
-						<!-- Executa o npm install da app client ao rodar mvn install -->
-						<id>npm-install</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<configuration>
-							<executable>npm</executable>
-							<arguments>
-								<argument>install</argument>
-							</arguments>
-							<skip>${npm.install.skip}</skip>
-						</configuration>
-					</execution>
-					<execution>
-						<!-- Executa o bower install da app client ao rodar mvn install -->
-						<id>bower-install</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<configuration>
-							<executable>bower</executable>
-							<arguments>
-								<argument>install</argument>
-								<argument>--allow-root</argument>
-							</arguments>
-							<skip>${bower.install.skip}</skip>
-						</configuration>
-					</execution>
-					<execution>
-						<!-- Executa o ember build da app client ao rodar mvn install -->
-						<!-- Posteriomente ele copia o dist da app client para o .war -->
-						<id>ember-build</id>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<configuration>
-							<skip>${ember.build.skip}</skip>
-							<executable>ember</executable>
-							<arguments>
-								<argument>build</argument>
-								<argument>--environment=${environment}</argument>
-							</arguments>
-						</configuration>
-					</execution>
-					<execution>
-						<!-- Testa a app client ao rodar mvn integration-test -->
-						<id>ember-test</id>
-						<phase>integration-test</phase>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<configuration>
-							<skip>${skipAcceptanceTests}</skip>
-							<executable>ember</executable>
-							<arguments>
-								<argument>test</argument>
-							</arguments>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.7</version>
-				<executions>
-					<execution>
-						<id>copy-resources</id>
-						<!-- Adiciona arquivo gerados pelo ember -->
-						<phase>process-resources</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
-							<resources>
-								<resource>
-									<directory>dist</directory>
-									<excludes>
-										<exclude>tests/*</exclude>
-										<exclude>crossdomain.xml</exclude>
-										<exclude>robots.txt</exclude>
-										<exclude>failed.png</exclude>
-										<exclude>.gitkeep</exclude>
-										<exclude>passed.png</exclude>
-										<exclude>test-loader.js</exclude>
-										<exclude>test-support.css</exclude>
-										<exclude>test-support.js</exclude>
-										<exclude>assets/test-loader.js</exclude>
-										<exclude>assets/test-support.css</exclude>
-										<exclude>assets/test-support.js</exclude>
-										<exclude>testem.js</exclude>
-									</excludes>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.10</version>
-				<configuration>
-					<sourceExcludes>
-						<sourceExclude>**/dist/**</sourceExclude>
-						<sourceExclude>**/tmp/**</sourceExclude>
-						<sourceExclude>**/app/**</sourceExclude>
-						<sourceExclude>dist/**</sourceExclude>
-						<sourceExclude>tmp/**</sourceExclude>
-						<sourceExclude>app/**</sourceExclude>
-					</sourceExcludes>
-					<!--<sourceIncludes><sourceInclude>**/*.myExtension</sourceInclude></sourceIncludes> -->
-				</configuration>
-			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
@@ -803,6 +674,136 @@
 	            </plugin>
 	        </plugins>
 	      </build>
-	    </profile>		
+	    </profile>
+	    <profile>
+	    	<id>ember</id>
+	    	<build>
+	    		<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.3.2</version>
+						<executions>
+							<execution>
+								<!-- Executa o npm install da app client ao rodar mvn install -->
+								<id>npm-install</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>npm</executable>
+									<arguments>
+										<argument>install</argument>
+									</arguments>
+									<skip>${npm.install.skip}</skip>
+								</configuration>
+							</execution>
+							<execution>
+								<!-- Executa o bower install da app client ao rodar mvn install -->
+								<id>bower-install</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>bower</executable>
+									<arguments>
+										<argument>install</argument>
+										<argument>--allow-root</argument>
+									</arguments>
+									<skip>${bower.install.skip}</skip>
+								</configuration>
+							</execution>
+							<execution>
+								<!-- Executa o ember build da app client ao rodar mvn install -->
+								<!-- Posteriomente ele copia o dist da app client para o .war -->
+								<id>ember-build</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<skip>${ember.build.skip}</skip>
+									<executable>ember</executable>
+									<arguments>
+										<argument>build</argument>
+										<argument>--environment=${environment}</argument>
+									</arguments>
+								</configuration>
+							</execution>
+							<execution>
+								<!-- Testa a app client ao rodar mvn integration-test -->
+								<id>ember-test</id>
+								<phase>integration-test</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<skip>${skipAcceptanceTests}</skip>
+									<executable>ember</executable>
+									<arguments>
+										<argument>test</argument>
+									</arguments>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>2.7</version>
+						<executions>
+							<execution>
+								<id>copy-resources</id>
+								<!-- Adiciona arquivo gerados pelo ember -->
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
+									<resources>
+										<resource>
+											<directory>dist</directory>
+											<excludes>
+												<exclude>tests/*</exclude>
+												<exclude>crossdomain.xml</exclude>
+												<exclude>robots.txt</exclude>
+												<exclude>failed.png</exclude>
+												<exclude>.gitkeep</exclude>
+												<exclude>passed.png</exclude>
+												<exclude>test-loader.js</exclude>
+												<exclude>test-support.css</exclude>
+												<exclude>test-support.js</exclude>
+												<exclude>assets/test-loader.js</exclude>
+												<exclude>assets/test-support.css</exclude>
+												<exclude>assets/test-support.js</exclude>
+												<exclude>testem.js</exclude>
+											</excludes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-eclipse-plugin</artifactId>
+						<version>2.10</version>
+						<configuration>
+							<sourceExcludes>
+								<sourceExclude>**/dist/**</sourceExclude>
+								<sourceExclude>**/tmp/**</sourceExclude>
+								<sourceExclude>**/app/**</sourceExclude>
+								<sourceExclude>dist/**</sourceExclude>
+								<sourceExclude>tmp/**</sourceExclude>
+								<sourceExclude>app/**</sourceExclude>
+							</sourceExcludes>
+							<!--<sourceIncludes><sourceInclude>**/*.myExtension</sourceInclude></sourceIncludes> -->
+						</configuration>
+					</plugin>
+	    		</plugins>
+	    	</build>
+	    </profile>	
 	</profiles>
 </project>
