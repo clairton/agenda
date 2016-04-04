@@ -27,7 +27,7 @@ import br.eti.clairton.repository.vraptor.Page;
 import br.eti.clairton.repository.vraptor.QueryParser;
 
 @Controller
-@Path("pessoa")
+@Path("telefone")
 public class TelefoneController  {
 	private static final Logger logger = getLogger(TelefoneController.class);
 	private final QueryParser queryParser;
