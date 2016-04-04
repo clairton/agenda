@@ -232,6 +232,42 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>br.eti.clairton</groupId>
+			<artifactId>ds-test</artifactId>
+			<version>0.3.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>${hsqldb.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.4-1201-jdbc41</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss</groupId>
+			<artifactId>jandex</artifactId>
+			<version>1.2.2.Final</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>el-impl</artifactId>
+			<version>2.2</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}${name.suffix}</finalName>
@@ -392,7 +428,7 @@
 						<id>stop-server</id>
 						<phase>post-integration-test</phase>
 						<configuration>
-							<skip>${skipAcceptanceTests}</skip>
+							<skip>${	}</skip>
 						</configuration>
 						<goals>
 							<goal>stop</goal>
@@ -598,50 +634,6 @@
 					]]>
 				</redirect.https>
 			</properties>
-		</profile>
-		<profile>
-			<id>test</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<dependencies>
-				<dependency>
-					<groupId>br.eti.clairton</groupId>
-					<artifactId>ds-test</artifactId>
-					<version>0.3.0</version>
-					<scope>test</scope>
-				</dependency>
-				<dependency>
-					<groupId>org.hsqldb</groupId>
-					<artifactId>hsqldb</artifactId>
-					<version>${hsqldb.version}</version>
-					<scope>test</scope>
-				</dependency>
-				<dependency>
-					<groupId>org.postgresql</groupId>
-					<artifactId>postgresql</artifactId>
-					<version>9.4-1201-jdbc41</version>
-					<scope>test</scope>
-				</dependency>
-				<dependency>
-					<groupId>org.jboss</groupId>
-					<artifactId>jandex</artifactId>
-					<version>1.2.2.Final</version>
-					<scope>test</scope>
-				</dependency>
-				<dependency>
-					<groupId>javax.servlet</groupId>
-					<artifactId>jstl</artifactId>
-					<version>1.2</version>
-					<scope>test</scope>
-				</dependency>
-				<dependency>
-					<groupId>org.glassfish.web</groupId>
-					<artifactId>el-impl</artifactId>
-					<version>2.2</version>
-					<scope>test</scope>
-				</dependency>
-			</dependencies>
 		</profile>
 	    <profile>
 	     <!-- When built in OpenShift the 'openshift' profile will be used when invoking mvn. -->
