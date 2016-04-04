@@ -11,7 +11,6 @@ import org.junit.rules.TestRule;
 import org.junit.runner.RunWith;
 
 import br.eti.clairton.exemplo.FixtureRule;
-import br.eti.clairton.exemplo.model.Pessoa;
 import br.eti.clairton.repository.Repository;
 
 
@@ -23,8 +22,13 @@ public class PessoaIntegrationTest {
 	private @Inject Repository repository;
 	
 	@Test
-	public void testGetNome() {
-		assertEquals(Long.valueOf(3l), repository.from(Pessoa.class).count());
+	public void testCount() {
+		assertEquals(Long.valueOf(5l), repository.from(Pessoa.class).count());
 	}
-
+	
+	
+	@Test
+	public void testCountTelefones() {
+		assertEquals(2, repository.byId(Pessoa.class, 1l).getTelefones().size());
+	}
 }
