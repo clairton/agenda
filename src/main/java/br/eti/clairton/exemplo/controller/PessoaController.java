@@ -70,7 +70,7 @@ public class PessoaController  {
 		final List<Order> orders = queryParser.order(request, Pessoa.class);
 		repository.orderBy(orders);
 		final PaginatedCollection<Pessoa, Meta> collection = repository.collection(paginate.offset, paginate.limit);
-		final Serializer serializer = result.use(json()).from(collection);
+		final Serializer serializer = result.use(json()).from(collection, "pessoas");
 		serializer.serialize();
 	}
 
