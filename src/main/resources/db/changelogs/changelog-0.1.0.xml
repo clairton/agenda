@@ -34,7 +34,7 @@
 			<column name="prefixo" type="int">
 				<constraints nullable="false" />
 			</column>
-			<column name="numero" type="bigint">
+			<column name="numero" type="int">
 				<constraints nullable="false" />
 			</column>
 		</createTable>

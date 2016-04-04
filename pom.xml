@@ -42,6 +42,12 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
+		    <groupId>br.eti.clairton</groupId>
+		    <artifactId>jpa-serializer</artifactId>
+		    <version>1.0.0</version>
+		    <scope>compile</scope>
+		</dependency>
+		<dependency>
 			<groupId>br.eti.clairton</groupId>
 			<artifactId>iterable-by-priority</artifactId>
 			<version>0.1.0</version>
