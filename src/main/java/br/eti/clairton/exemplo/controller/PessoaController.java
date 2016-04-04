@@ -12,8 +12,11 @@ import javax.servlet.ServletRequest;
 import org.apache.logging.log4j.Logger;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.serialization.Serializer;
 import br.eti.clairton.exemplo.model.Pessoa;
@@ -67,9 +70,41 @@ public class PessoaController  {
 		final List<Order> orders = queryParser.order(request, Pessoa.class);
 		repository.orderBy(orders);
 		final PaginatedCollection<Pessoa, Meta> collection = repository.collection(paginate.offset, paginate.limit);
-
 		final Serializer serializer = result.use(json()).from(collection);
 		serializer.serialize();
 	}
 
+	@Get
+	@Path({ "/{id}" })
+	public void show(Long id) {
+		logger.debug("Recuperando pessoa id {}", id);
+		final Pessoa pessoa = repository.byId(Pessoa.class, id);
+		final Serializer serializer = result.use(json()).from(pessoa);
+		serializer.serialize();
+	}
+
+	@Post
+	@Path({ "", "/" })
+	public void create(Pessoa pessoa) {
+		logger.debug("Salvando pessoa{}", pessoa);
+		pessoa = repository.save(pessoa);
+		final Serializer serializer = result.use(json()).from(pessoa);
+		serializer.serialize();
+	}
+
+	@Put
+	@Path({ "", "/" })
+	public void update(Pessoa pessoa) {
+		logger.debug("Salvando pessoa{}", pessoa);
+		pessoa = repository.save(pessoa);
+		final Serializer serializer = result.use(json()).from(pessoa);
+		serializer.serialize();
+	}
+
+	@Delete
+	@Path({ "/{id}" })
+	public void remove(Long id) {
+		logger.debug("Removendo pessoa id {}", id);
+		repository.remove(repository.byId(Pessoa.class, id));
+	}
 }
