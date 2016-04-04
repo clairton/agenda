@@ -1,0 +1,8 @@
+jboss-cli.sh -c --controller=$OPENSHIFT_WILDFLY_IP:$OPENSHIFT_WILDFLY_MANAGEMENT_HTTP_PORT
+
+data-source remove --name=ExemploDS
+
+data-source add --name=ExemploDS --jndi-name=java:/jdbc/datasources/ExemploDS --driver-name=postgresql --connection-url="jdbc:postgresql://${OPENSHIFT_POSTGRESQL_DB_HOST:}:${OPENSHIFT_POSTGRESQL_DB_PORT:}/exemplo" --user-name="xxx" --password="xx"
+
+
+/subsystem=datasources/data-source=ExemploDS:test-connection-in-pool
