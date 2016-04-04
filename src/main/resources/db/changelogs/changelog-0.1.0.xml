@@ -3,9 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-	<changeSet author="Clairton Rodrigo Heinzen clairton.rodrigo@gmail.com" id="0.1.0">
+	<changeSet author="Clairton Rodrigo Heinzen clairton.rodrigo@gmail.com" id="0.1.0-1">
 		<createTable tableName="pessoas">
-			<column name="id" type="bigint" autoIncrement="true">
+			<column name="id" type="bigint" autoIncrement="true" startWith="1" incrementBy="1">
 				<constraints primaryKey="true" primaryKeyName="pessoa_pkey"
 					uniqueConstraintName="pessoa_id" nullable="false" />
 			</column>
@@ -23,6 +23,44 @@
 		<sql>
 			INSERT INTO pessoas(nome, sobrenome) VALUES ('Clairton', 'Heinzen');
 			INSERT INTO pessoas(nome, sobrenome) VALUES ('Rodrigo', 'Souza');
+		</sql>
+	</changeSet>
+	<changeSet author="Clairton Rodrigo Heinzen clairton.rodrigo@gmail.com" id="0.1.0-4">
+		<createTable tableName="telefones">
+			<column name="id" type="bigint" autoIncrement="true" startWith="1" incrementBy="1">
+				<constraints primaryKey="true" primaryKeyName="telefone_pkey"
+					uniqueConstraintName="telefone_id" nullable="false" />
+			</column>
+			<column name="prefixo" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="numero" type="bigint">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<createTable tableName="pessoas_telefones">
+			<column name="id" type="bigint" autoIncrement="true" startWith="1" incrementBy="1">
+				<constraints primaryKey="true" primaryKeyName="pessoa_telefone_pkey"
+					uniqueConstraintName="pessoa_telefone_id" nullable="false" />
+			</column>
+			<column name="pessoa_id" type="bigint">
+				<constraints nullable="false" foreignKeyName="pessoa_telefone__pessoa__fkey"
+					referencedColumnNames="id" referencedTableName="pessoas"/>
+			</column>
+			<column name="telefone_id" type="bigint">
+				<constraints nullable="false" foreignKeyName="pessoa_telefone__telefone__fkey"
+					referencedColumnNames="id" referencedTableName="telefones" unique="true"
+					uniqueConstraintName="pessoa_telefone_telefone_unique"/>
+			</column>
+		</createTable>
+		<sql>
+			INSERT INTO telefones(prefixo, numero) VALUES (49, 12345678);
+			INSERT INTO telefones(prefixo, numero) VALUES (11, 123456789);
+			INSERT INTO pessoas_telefones(pessoa_id, telefone_id) VALUES (1, 1);
+			INSERT INTO pessoas_telefones(pessoa_id, telefone_id) VALUES (1, 2);
+
+			INSERT INTO telefones(prefixo, numero) VALUES (49, 87654321);
+			INSERT INTO pessoas_telefones(pessoa_id, telefone_id) VALUES (2, 3);
 		</sql>
 	</changeSet>
 </databaseChangeLog>
