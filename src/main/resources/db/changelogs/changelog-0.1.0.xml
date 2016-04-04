@@ -3,8 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-	<changeSet author="Clairton Rodrigo Heinzen clairton.rodrigo@gmail.com"
-		id="0.1.0">
+	<changeSet author="Clairton Rodrigo Heinzen clairton.rodrigo@gmail.com" id="0.1.0">
 		<createTable tableName="pessoas">
 			<column name="id" type="bigint" autoIncrement="true">
 				<constraints primaryKey="true" primaryKeyName="pessoa_pkey"
@@ -14,5 +13,16 @@
 				<constraints nullable="false" />
 			</column>
 		</createTable>
+	</changeSet>
+	<changeSet author="Clairton Rodrigo Heinzen clairton.rodrigo@gmail.com" id="0.1.0-2">
+		<addColumn tableName="pessoas">
+			<column name="sobrenome" type="varchar(100)"/>
+		</addColumn>
+	</changeSet>
+	<changeSet author="Clairton Rodrigo Heinzen clairton.rodrigo@gmail.com" id="0.1.0-3">
+		<sql>
+			INSERT INTO pessoas(nome, sobrenome) VALUES ('Clairton', 'Heinzen');
+			INSERT INTO pessoas(nome, sobrenome) VALUES ('Rodrigo', 'Souza');
+		</sql>
 	</changeSet>
 </databaseChangeLog>
