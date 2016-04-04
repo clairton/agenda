@@ -13,6 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.serialization.Serializer;
 import br.eti.clairton.exemplo.model.Pessoa;
@@ -26,12 +27,18 @@ import br.eti.clairton.repository.vraptor.Page;
 import br.eti.clairton.repository.vraptor.QueryParser;
 
 @Controller
+@Path("pessoa")
 public class PessoaController  {
 	private static final Logger logger = getLogger(PessoaController.class);
-	private QueryParser queryParser;
-	private ServletRequest request;
-	private Repository repository;
-	private Result result;
+	private final QueryParser queryParser;
+	private final ServletRequest request;
+	private final Repository repository;
+	private final Result result;
+	
+	@Deprecated
+	public PessoaController() {
+		this(null, null, null, null, null);
+	}
 
 	@Inject
 	public PessoaController(
@@ -45,9 +52,9 @@ public class PessoaController  {
 		this.repository = repository;
 		this.result = result;
 	}
-	
-	
+
 	@Get
+	@Path({ "", "/" })
 	public void index() {
 		logger.debug("Recuperando pessoas");
 		final Page paginate = queryParser.paginate(request, Pessoa.class);
@@ -60,8 +67,7 @@ public class PessoaController  {
 		final List<Order> orders = queryParser.order(request, Pessoa.class);
 		repository.orderBy(orders);
 		final PaginatedCollection<Pessoa, Meta> collection = repository.collection(paginate.offset, paginate.limit);
-		
-		
+
 		final Serializer serializer = result.use(json()).from(collection);
 		serializer.serialize();
 	}

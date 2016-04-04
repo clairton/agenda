@@ -12,6 +12,11 @@ public class Pessoa extends Model {
 
 	private String nome;
 
+	@Deprecated
+	public Pessoa() {
+		this(null);
+	}
+	
 	public Pessoa(String nome) {
 		this.nome = nome;
 	}

@@ -21,7 +21,7 @@
 		<hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
 		<dbunit.version>2.5.0</dbunit.version>
 		<deltaspike.version>1.5.4</deltaspike.version>
-		<context.root>/boostrap</context.root>
+		<context.root>/exemplo</context.root>
 		<virtual.host>default-host</virtual.host>
 		<environment>develoment</environment>
 		<redirect.https />
@@ -515,7 +515,7 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -796,6 +796,6 @@
 					</plugin>
 	    		</plugins>
 	    	</build>
-	    </profile>	
+	    </profile>
 	</profiles>
 </project>
