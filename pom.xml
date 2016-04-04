@@ -21,10 +21,7 @@
 		<hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
 		<dbunit.version>2.5.0</dbunit.version>
 		<deltaspike.version>1.5.4</deltaspike.version>
-		<context.root>/exemplo</context.root>
-		<virtual.host>default-host</virtual.host>
 		<environment>develoment</environment>
-		<redirect.https />
 		<npm.install.skip>false</npm.install.skip>
 		<bower.install.skip>false</bower.install.skip>
 		<ember.build.skip>false</ember.build.skip>
@@ -617,22 +614,6 @@
 				<environment>production</environment>
 				<log.level>INFO</log.level>
 				<log.path>../standalone/log</log.path>
-				<context.root>/</context.root>
-				<virtual.host>${project.build.finalName}</virtual.host>
-				<redirect.https>
-					<![CDATA[
-						<!-- Redireciona http para https -->
-						<security-constraint>
-							<web-resource-collection>
-								<web-resource-name>https</web-resource-name>
-								<url-pattern>/*</url-pattern>
-							</web-resource-collection>
-							<user-data-constraint>
-								<transport-guarantee>CONFIDENTIAL</transport-guarantee>
-							</user-data-constraint>
-						</security-constraint>
-					]]>
-				</redirect.https>
 			</properties>
 		</profile>
 	    <profile>
