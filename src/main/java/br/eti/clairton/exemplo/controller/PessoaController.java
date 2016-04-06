@@ -30,7 +30,7 @@ import br.eti.clairton.repository.vraptor.Page;
 import br.eti.clairton.repository.vraptor.QueryParser;
 
 @Controller
-@Path("pessoa")
+@Path("pessoas")
 public class PessoaController  {
 	private static final Logger logger = getLogger(PessoaController.class);
 	private final QueryParser queryParser;
