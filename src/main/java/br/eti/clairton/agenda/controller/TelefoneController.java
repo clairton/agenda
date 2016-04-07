@@ -1,4 +1,4 @@
-package br.eti.clairton.exemplo.controller;
+package br.eti.clairton.agenda.controller;
 
 import javax.inject.Inject;
 import javax.servlet.ServletRequest;
@@ -6,7 +6,7 @@ import javax.servlet.ServletRequest;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
-import br.eti.clairton.exemplo.model.Telefone;
+import br.eti.clairton.agenda.model.Telefone;
 import br.eti.clairton.repository.Repository;
 import br.eti.clairton.repository.vraptor.QueryParser;
 

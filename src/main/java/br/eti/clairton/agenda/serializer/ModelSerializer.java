@@ -1,4 +1,4 @@
-package br.eti.clairton.exemplo.serializer;
+package br.eti.clairton.agenda.serializer;
 
 import static br.com.caelum.vraptor.serialization.gson.RegisterType.INHERITANCE;
 

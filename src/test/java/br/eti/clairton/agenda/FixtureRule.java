@@ -1,4 +1,4 @@
-package br.eti.clairton.exemplo;
+package br.eti.clairton.agenda;
 
 import static br.eti.clairton.migrator.Config.DROP;
 import static br.eti.clairton.migrator.Config.POPULATE;

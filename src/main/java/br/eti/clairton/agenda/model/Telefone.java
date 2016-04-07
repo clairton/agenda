@@ -1,4 +1,4 @@
-package br.eti.clairton.exemplo.model;
+package br.eti.clairton.agenda.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

@@ -1,4 +1,4 @@
-package br.eti.clairton.exemplo.controller;
+package br.eti.clairton.agenda.controller;
 
 import static org.junit.Assert.assertEquals;
 

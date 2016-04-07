@@ -5,10 +5,10 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
-	<persistence-unit name="exemplo" transaction-type="JTA">
-		<jta-data-source>java:/jdbc/datasources/ExemploDS</jta-data-source>
-		<class>br.eti.clairton.exemplo.model.Pessoa</class>
-		<class>br.eti.clairton.exemplo.model.Telefone</class>
+	<persistence-unit name="agenda" transaction-type="JTA">
+		<jta-data-source>java:/jdbc/datasources/AgendaDS</jta-data-source>
+		<class>br.eti.clairton.agenda.model.Pessoa</class>
+		<class>br.eti.clairton.agenda.model.Telefone</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />

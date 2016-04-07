@@ -1,4 +1,4 @@
-package br.eti.clairton.exemplo.serializer;
+package br.eti.clairton.agenda.serializer;
 
 import static br.com.caelum.vraptor.serialization.gson.RegisterType.SINGLE;
 import static br.eti.clairton.jpa.serializer.Operation.DESERIALIZE;
@@ -10,7 +10,7 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonSerializer;
 
 import br.com.caelum.vraptor.serialization.gson.RegisterStrategy;
-import br.eti.clairton.exemplo.model.Pessoa;
+import br.eti.clairton.agenda.model.Pessoa;
 import br.eti.clairton.jpa.serializer.GsonJpaSerializer;
 
 @RegisterStrategy(SINGLE)

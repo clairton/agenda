@@ -144,7 +144,7 @@
                         <password>sa</password>
                     </security>
                 </datasource>
-                <datasource jndi-name="java:/jdbc/datasources/ExemploDS" enabled="${postgresql.enabled}" use-java-context="true" pool-name="ExemploDS" use-ccm="true">
+                <datasource jndi-name="java:/jdbc/datasources/AgendaDS" enabled="${postgresql.enabled}" use-java-context="true" pool-name="AgendaDS" use-ccm="true">
                     <connection-url>jdbc:postgresql://${env.OPENSHIFT_POSTGRESQL_DB_HOST}:${env.OPENSHIFT_POSTGRESQL_DB_PORT}/${env.OPENSHIFT_APP_NAME}</connection-url>
                     <driver>postgresql</driver>
                     <security>

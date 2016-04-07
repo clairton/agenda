@@ -1,4 +1,4 @@
-package br.eti.clairton.exemplo;
+package br.eti.clairton.agenda;
 
 import static br.eti.clairton.inflector.Inflector.getForLocale;
 import static br.eti.clairton.inflector.Locale.pt_BR;
@@ -38,7 +38,7 @@ import net.vidageek.mirror.dsl.Mirror;
  */
 @ApplicationScoped
 public class Resource {
-	public static final String UNIT_NAME = "exemplo";
+	public static final String UNIT_NAME = "agenda";
 
 	public static final String ENVIROMENT_PARAM = "br.com.caelum.vraptor.environment";
 
@@ -85,7 +85,7 @@ public class Resource {
 	public Connection getConnection() {
 		try {
 			final InitialContext context = new InitialContext();
-			final String jndi = "java:/jdbc/datasources/ExemploDS";
+			final String jndi = "java:/jdbc/datasources/AgendaDS";
 			final DataSource dataSource = (DataSource) context.lookup(jndi);
 			return dataSource.getConnection();
 		} catch (final Exception e) {

@@ -1,4 +1,4 @@
-package br.eti.clairton.exemplo;
+package br.eti.clairton.agenda;
 
 import br.eti.clairton.repository.tenant.Value;
 

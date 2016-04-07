@@ -1,4 +1,4 @@
-package br.eti.clairton.exemplo.controller;
+package br.eti.clairton.agenda.controller;
 
 import static br.com.caelum.vraptor.view.Results.json;
 import static org.apache.logging.log4j.LogManager.getLogger;
@@ -15,7 +15,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.serialization.Serializer;
-import br.eti.clairton.exemplo.model.Telefone;
+import br.eti.clairton.agenda.model.Telefone;
 import br.eti.clairton.paginated.collection.Meta;
 import br.eti.clairton.paginated.collection.PaginatedCollection;
 import br.eti.clairton.repository.Order;

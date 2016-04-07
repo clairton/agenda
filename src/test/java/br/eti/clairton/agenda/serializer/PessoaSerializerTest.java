@@ -1,4 +1,4 @@
-package br.eti.clairton.exemplo.serializer;
+package br.eti.clairton.agenda.serializer;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -17,8 +17,10 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 
-import br.eti.clairton.exemplo.model.Pessoa;
-import br.eti.clairton.exemplo.model.Telefone;
+import br.eti.clairton.agenda.model.Pessoa;
+import br.eti.clairton.agenda.model.Telefone;
+import br.eti.clairton.agenda.serializer.ModelSerializer;
+import br.eti.clairton.agenda.serializer.PessoaSerializer;
 import br.eti.clairton.repository.Model;
 import net.vidageek.mirror.dsl.Mirror;
 

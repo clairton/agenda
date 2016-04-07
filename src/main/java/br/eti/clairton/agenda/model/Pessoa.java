@@ -1,4 +1,4 @@
-package br.eti.clairton.exemplo.model;
+package br.eti.clairton.agenda.model;
 
 import static java.util.Collections.unmodifiableCollection;
 import static javax.persistence.CascadeType.ALL;

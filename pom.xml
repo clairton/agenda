@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.eti.clairton</groupId>
-	<artifactId>exemplo</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<artifactId>agenda</artifactId>
+	<version>0.1.0</version>
 	<packaging>war</packaging>
 
 	<prerequisites>
@@ -374,8 +374,8 @@
 						<properties>
 							<cargo.datasource.datasource.exemplo>
 								cargo.datasource.driver=org.hsqldb.jdbc.JDBCDriver|
-								cargo.datasource.url=jdbc:hsqldb:mem:exemplo;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE|
-								cargo.datasource.jndi=java:/jdbc/datasources/ExemploDS|
+								cargo.datasource.url=jdbc:hsqldb:mem:agenda;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE|
+								cargo.datasource.jndi=java:/jdbc/datasources/AgendaDS|
 								cargo.datasource.username=sa|
 								cargo.datasource.password=
 							</cargo.datasource.datasource.exemplo>
