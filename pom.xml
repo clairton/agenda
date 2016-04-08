@@ -31,6 +31,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>br.eti.clairton</groupId>
+			<artifactId>vraptor-cors</artifactId>
+			<version>0.1.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>br.eti.clairton</groupId>
 			<artifactId>jcache-policy</artifactId>
 			<version>0.1.0</version>
 			<scope>compile</scope>
