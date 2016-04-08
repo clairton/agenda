@@ -50,7 +50,7 @@ public abstract class AbstractController {
 		logger.debug("Recuperando telefones");
 		final Page paginate = queryParser.paginate(request, type());
 		final Collection<Predicate> predicates = queryParser.parse(request, type());
-		repository.from(Telefone.class);
+		repository.from(type());
 		repository.distinct();
 		if (!predicates.isEmpty()) {
 			repository.where(predicates);
