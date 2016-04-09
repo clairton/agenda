@@ -1,5 +1,6 @@
 package br.eti.clairton.agenda.controller;
 
+import static br.com.caelum.vraptor.view.Results.http;
 import static br.com.caelum.vraptor.view.Results.json;
 import static org.apache.logging.log4j.LogManager.getLogger;
 
@@ -11,6 +12,7 @@ import javax.servlet.ServletRequest;
 
 import org.apache.logging.log4j.Logger;
 
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
@@ -41,6 +43,14 @@ public abstract class AbstractController {
 		this.request = request;
 		this.repository = repository;
 		this.result = result;
+	}
+
+	@Delete
+	@Path({ "/{id}" })
+	public void remove(Long id) {
+		logger.debug("Removendo {} id {}", tag(), id);
+		repository.remove(type(), id);
+		result.use(http()).setStatusCode(204);
 	}
 
 

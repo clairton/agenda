@@ -1,6 +1,5 @@
 package br.eti.clairton.agenda.controller;
 
-import static br.com.caelum.vraptor.view.Results.http;
 import static br.com.caelum.vraptor.view.Results.json;
 import static org.apache.logging.log4j.LogManager.getLogger;
 
@@ -11,7 +10,6 @@ import org.apache.logging.log4j.Logger;
 
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Controller;
-import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
@@ -49,7 +47,7 @@ public class PessoaController  extends AbstractController{
 	@Path({ "", "/" })
 	@Consumes(value = "application/json", options = WithRoot.class)
 	public void create(Pessoa pessoa) {
-		logger.debug("Salvando pessoa{}", pessoa);
+		logger.debug("Salvando pessoa {}", pessoa);
 		pessoa = repository.save(pessoa);
 		final Serializer serializer = result.use(json()).from(pessoa);
 		serializer.serialize();
@@ -59,18 +57,10 @@ public class PessoaController  extends AbstractController{
 	@Path({ "", "/" })
 	@Consumes(value = "application/json", options = WithRoot.class)
 	public void update(Pessoa pessoa) {
-		logger.debug("Salvando pessoa{}", pessoa);
+		logger.debug("Salvando pessoa {}", pessoa);
 		pessoa = repository.save(pessoa);
 		final Serializer serializer = result.use(json()).from(pessoa);
 		serializer.serialize();
-	}
-
-	@Delete
-	@Path({ "/{id}" })
-	public void remove(Long id) {
-		logger.debug("Removendo pessoa id {}", id);
-		repository.remove(repository.byId(Pessoa.class, id));
-		result.use(http()).setStatusCode(204);
 	}
 
 	@Override
