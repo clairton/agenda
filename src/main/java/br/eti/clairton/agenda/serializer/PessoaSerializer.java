@@ -20,6 +20,6 @@ public class PessoaSerializer extends GsonJpaSerializer<Pessoa> implements JsonS
 	@Inject
 	public PessoaSerializer(final EntityManager manager) {
 		super(manager);
-		record("telefone", DESERIALIZE);
+		record("telefones", DESERIALIZE);
 	}
 }
