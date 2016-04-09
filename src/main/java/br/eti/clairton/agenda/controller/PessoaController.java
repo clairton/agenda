@@ -54,7 +54,7 @@ public class PessoaController  extends AbstractController{
 	}
 
 	@Put
-	@Path({ "", "/" })
+	@Path("/{pessoa.id}")
 	@Consumes(value = "application/json", options = WithRoot.class)
 	public void update(Pessoa pessoa) {
 		logger.debug("Salvando pessoa {}", pessoa);
