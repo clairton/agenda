@@ -39,7 +39,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.rootURL = '/';
+    ENV.hots = 'http://agenda.clairton.eti.br';
+    ENV.namespace = null;
   }
 
   return ENV;

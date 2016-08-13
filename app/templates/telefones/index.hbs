@@ -1,0 +1,48 @@
+<h1>Telefones list</h1>
+
+<p>
+  {{link-to "New Telefone" "telefones.new" }}
+</p>
+
+{{#if model.length}}
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Prefixo
+        </th>
+        <th>
+          Numero
+        </th>
+        <th colspan="3">
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model as |telefone|}}
+        <tr>
+          <td>
+            {{telefone.prefixo}}
+          </td>
+          <td>
+            {{telefone.numero}}
+          </td>
+          <td>
+            {{link-to "Edit" "telefones.edit" telefone}}
+          </td>
+          <td>
+            {{link-to "Show" "telefones.show" telefone}}
+          </td>
+          <td>
+            <a href="#" {{action "remove" telefone}}>Remove</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p id="blankslate">
+    No Telefones found
+  </p>
+{{/if}}

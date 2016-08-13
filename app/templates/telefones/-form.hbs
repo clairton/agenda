@@ -1,0 +1,17 @@
+<form {{action "save" on="submit"}}>
+  <div>
+    <label>
+      Prefixo
+      {{input type="text" value=model.prefixo}}
+    </label>
+  </div>
+  <div>
+    <label>
+      Numero
+      {{input type="text" value=model.numero}}
+    </label>
+  </div>
+  <div>
+    <input type="submit" value="Save">
+  </div>
+</form>

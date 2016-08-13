@@ -7,6 +7,17 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('telefones', function() {
+    this.route('new');
+
+    this.route('edit', {
+      path: ':telefone_id/edit'
+    });
+
+    this.route('show', {
+      path: ':telefone_id'
+    });
+  });
 });
 
 export default Router;
