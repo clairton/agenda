@@ -3,7 +3,7 @@ this.get('/telefones');
 this.get('/telefones/:id');
 this.post('/telefones');
 this.del('/telefones/:id');
-this.patch('/telefones/:id');
+this.put('/telefones/:id');
 
   // These comments are here to help you get started. Feel free to delete them.
 

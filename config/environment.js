@@ -27,6 +27,11 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
+  if(environment === 'localhost'){
+    ENV.host = 'http://localhost:8080';
+    ENV.namespace = 'agenda';
+  }
+
   if (environment === 'test') {
     // Testem prefers this...
     ENV.locationType = 'none';

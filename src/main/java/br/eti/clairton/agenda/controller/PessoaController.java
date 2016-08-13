@@ -13,6 +13,7 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
+import br.com.caelum.vraptor.Patch;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.serialization.Serializer;
 import br.com.caelum.vraptor.serialization.gson.WithRoot;
@@ -54,6 +55,7 @@ public class PessoaController  extends AbstractController{
 	}
 
 	@Put
+	@Patch
 	@Path("/{pessoa.id}")
 	@Consumes(value = "application/json", options = WithRoot.class)
 	public void update(Pessoa pessoa) {
