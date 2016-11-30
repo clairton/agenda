@@ -13,6 +13,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import br.eti.clairton.identificator.Identificator;
 import br.eti.clairton.repository.Model;
 
 @Entity
@@ -20,8 +21,10 @@ import br.eti.clairton.repository.Model;
 public class Pessoa extends Model {
 	private static final long serialVersionUID = 1L;
 
+	@Identificator
 	private String nome;
 
+	@Identificator
 	private String sobrenome;
 
 	@OneToMany(fetch = EAGER, cascade = ALL)

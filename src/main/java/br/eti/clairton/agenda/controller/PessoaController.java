@@ -19,7 +19,7 @@ import br.com.caelum.vraptor.serialization.Serializer;
 import br.com.caelum.vraptor.serialization.gson.WithRoot;
 import br.eti.clairton.agenda.model.Pessoa;
 import br.eti.clairton.repository.Repository;
-import br.eti.clairton.repository.vraptor.QueryParser;
+import br.eti.clairton.repository.http.QueryParser;
 
 @Controller
 @Path("pessoas")

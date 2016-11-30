@@ -8,7 +8,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
 import br.eti.clairton.agenda.model.Telefone;
 import br.eti.clairton.repository.Repository;
-import br.eti.clairton.repository.vraptor.QueryParser;
+import br.eti.clairton.repository.http.QueryParser;
 
 @Controller
 @Path("telefones")

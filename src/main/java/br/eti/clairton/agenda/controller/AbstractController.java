@@ -23,8 +23,8 @@ import br.eti.clairton.paginated.collection.PaginatedCollection;
 import br.eti.clairton.repository.Order;
 import br.eti.clairton.repository.Predicate;
 import br.eti.clairton.repository.Repository;
-import br.eti.clairton.repository.vraptor.Page;
-import br.eti.clairton.repository.vraptor.QueryParser;
+import br.eti.clairton.repository.http.Page;
+import br.eti.clairton.repository.http.QueryParser;
 
 public abstract class AbstractController {
 	private static final Logger logger = getLogger(TelefoneController.class);
@@ -58,14 +58,14 @@ public abstract class AbstractController {
 	@Path({ "", "/" })
 	public void index() {
 		logger.debug("Recuperando telefones");
-		final Page paginate = queryParser.paginate(request, type());
-		final Collection<Predicate> predicates = queryParser.parse(request, type());
+		final Page paginate = queryParser.paginate(request.getParameterMap(), type());
+		final Collection<Predicate> predicates = queryParser.parse(request.getParameterMap(), type());
 		repository.from(type());
 		repository.distinct();
 		if (!predicates.isEmpty()) {
 			repository.where(predicates);
 		}
-		final List<Order> orders = queryParser.order(request, Telefone.class);
+		final List<Order> orders = queryParser.order(request.getParameterMap(), Telefone.class);
 		repository.orderBy(orders);
 		final PaginatedCollection<Telefone, Meta> collection = repository.collection(paginate.offset, paginate.limit);
 		final Serializer serializer = result.use(json()).from(collection, tag());
