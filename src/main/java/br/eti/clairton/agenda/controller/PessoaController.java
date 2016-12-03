@@ -58,10 +58,10 @@ public class PessoaController  extends AbstractController{
 	@Patch
 	@Path("/{pessoa.id}")
 	@Consumes(value = "application/json", options = WithRoot.class)
-	public void update(Pessoa pessoa) {
+	public void update(final Pessoa pessoa) {
 		logger.debug("Salvando pessoa {}", pessoa);
-		pessoa = repository.save(pessoa);
-		final Serializer serializer = result.use(json()).from(pessoa);
+		final Pessoa saved = repository.save(pessoa);
+		final Serializer serializer = result.use(json()).from(saved);
 		serializer.serialize();
 	}
 
