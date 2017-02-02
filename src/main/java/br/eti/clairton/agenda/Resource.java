@@ -28,7 +28,6 @@ import org.apache.logging.log4j.Logger;
 import br.eti.clairton.inflector.Inflector;
 import br.eti.clairton.inflector.Language;
 import br.eti.clairton.migrator.Config;
-import br.eti.clairton.repository.AttributeBuilder;
 import net.vidageek.mirror.dsl.Mirror;
 
 /**
@@ -116,11 +115,6 @@ public class Resource {
 		}
 		final Inflector inflector = getForLocale(language);
 		return inflector;
-	}
-
-	@Produces
-	public AttributeBuilder getAttributeBuilder(final @Default EntityManager em) {
-		return new AttributeBuilder(em);
 	}
 
 
