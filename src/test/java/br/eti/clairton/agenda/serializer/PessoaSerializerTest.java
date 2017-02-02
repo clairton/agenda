@@ -1,5 +1,7 @@
 package br.eti.clairton.agenda.serializer;
 
+import static br.eti.clairton.inflector.Inflector.getForLocale;
+import static br.eti.clairton.inflector.Locale.pt_BR;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 
@@ -32,7 +34,7 @@ public class PessoaSerializerTest {
 	public void init() {
 		final GsonBuilder builder = new GsonBuilder();
 		builder.registerTypeHierarchyAdapter(Model.class, new ModelSerializer(em));
-		builder.registerTypeAdapter(Pessoa.class, new PessoaSerializer(em) {
+		builder.registerTypeAdapter(Pessoa.class, new PessoaSerializer(new HypermediableRuleAgenda(), em, getForLocale(pt_BR)) {
 			private static final long serialVersionUID = 1L;
 
 			@Override
@@ -52,7 +54,7 @@ public class PessoaSerializerTest {
 		new Mirror().on(telefone).set().field("id").withValue(2l);
 		pessoa.adicionar(telefone);
 		final String result = gson.toJson(pessoa);
-		assertEquals("{\"nome\":\"João\",\"sobrenome\":\"Silva\",\"telefones\":[2]}", result);
+		assertEquals("{\"nome\":\"João\",\"sobrenome\":\"Silva\",\"telefones\":[2],\"links\":[]}", result);
 	}
 
 	@Test

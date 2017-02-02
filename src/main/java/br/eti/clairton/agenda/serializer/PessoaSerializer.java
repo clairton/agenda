@@ -11,15 +11,27 @@ import com.google.gson.JsonSerializer;
 
 import br.com.caelum.vraptor.serialization.gson.RegisterStrategy;
 import br.eti.clairton.agenda.model.Pessoa;
-import br.eti.clairton.jpa.serializer.GsonJpaSerializer;
+import br.eti.clairton.gson.hypermedia.HypermediableRule;
+import br.eti.clairton.gson.hypermedia.HypermediableSerializer;
+import br.eti.clairton.inflector.Inflector;
 
 @RegisterStrategy(SINGLE)
-public class PessoaSerializer extends GsonJpaSerializer<Pessoa> implements JsonSerializer<Pessoa>, JsonDeserializer<Pessoa> {
+public class PessoaSerializer extends HypermediableSerializer<Pessoa> implements JsonSerializer<Pessoa>, JsonDeserializer<Pessoa> {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	public PessoaSerializer(final EntityManager manager) {
-		super(manager);
+	public PessoaSerializer(final HypermediableRule navigator, final EntityManager manager, final Inflector inflector) {
+		super(navigator, manager, inflector);
 		record("telefones", DESERIALIZE);
+	}
+
+	@Override
+	public String getResource(Pessoa src) {
+		return "pessoa";
+	}
+
+	@Override
+	public String getOperation(Pessoa src) {
+		return "index";
 	}
 }

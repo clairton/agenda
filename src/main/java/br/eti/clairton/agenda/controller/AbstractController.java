@@ -27,7 +27,7 @@ import br.eti.clairton.repository.http.Page;
 import br.eti.clairton.repository.http.QueryParser;
 
 public abstract class AbstractController {
-	private static final Logger logger = getLogger(TelefoneController.class);
+	private static final Logger logger = getLogger(AbstractController.class);
 	private final QueryParser queryParser;
 	private final ServletRequest request;
 	private final Repository repository;
