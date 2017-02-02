@@ -20,6 +20,7 @@ public class PessoaControllerIntegrationTest extends VRaptorIntegration {
 	public void testIndex() {
 		VRaptorTestResult result = navigate().get("/pessoas?nome=Clairton").execute();
 		assertEquals(200, result.getResponse().getStatus());
+		assertEquals("{\"pessoas\":[{\"nome\":\"Clairton\",\"sobrenome\":\"Heinzen\",\"telefones\":[1,2],\"id\":1}],\"links\":[{\"rel\":\"index\"}],\"meta\":{\"total\":10,\"page\":1}}", result.getResponseBody());
 	}
 	
 	@Test
