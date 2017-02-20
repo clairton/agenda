@@ -3,15 +3,19 @@ package br.eti.clairton.agenda.model;
 import static java.util.Collections.unmodifiableCollection;
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
+import static javax.persistence.TemporalType.DATE;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 import br.eti.clairton.identificator.Identificator;
 import br.eti.clairton.repository.Model;
@@ -26,6 +30,11 @@ public class Pessoa extends Model {
 
 	@Identificator
 	private String sobrenome;
+
+	@Identificator
+	@Temporal(DATE)
+	@Column(name = "nascido_em")
+	private Date nascidoEm;
 
 	@OneToMany(fetch = EAGER, cascade = ALL)
 	@JoinTable(name = "pessoas_telefones", joinColumns = @JoinColumn(name = "pessoa_id"), inverseJoinColumns = @JoinColumn(name = "telefone_id"))
@@ -51,6 +60,10 @@ public class Pessoa extends Model {
 
 	public String getSobrenome() {
 		return sobrenome;
+	}
+	
+	public Date getNascidoEm() {
+		return nascidoEm;
 	}
 	
 	public Collection<Telefone> getTelefones() {

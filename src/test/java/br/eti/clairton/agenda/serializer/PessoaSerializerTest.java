@@ -54,7 +54,7 @@ public class PessoaSerializerTest {
 		new Mirror().on(telefone).set().field("id").withValue(2l);
 		pessoa.adicionar(telefone);
 		final String result = gson.toJson(pessoa);
-		assertEquals("{\"nome\":\"João\",\"sobrenome\":\"Silva\",\"telefones\":[2],\"links\":[]}", result);
+		assertEquals("{\"nome\":\"João\",\"sobrenome\":\"Silva\",\"telefones\":[2],\"links\":[{\"rel\":\"remove\"},{\"rel\":\"update\"},{\"rel\":\"show\"},{\"rel\":\"index\"},{\"rel\":\"edit\"},{\"rel\":\"new\"},{\"rel\":\"create\"}]}", result);
 	}
 
 	@Test

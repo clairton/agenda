@@ -20,12 +20,12 @@ public class PessoaControllerIntegrationTest extends VRaptorIntegration {
 	public void testIndex() {
 		VRaptorTestResult result = navigate().get("/pessoas?nome=Clairton").execute();
 		assertEquals(200, result.getResponse().getStatus());
-		assertEquals("{\"pessoas\":[{\"nome\":\"Clairton\",\"sobrenome\":\"Heinzen\",\"telefones\":[1,2],\"id\":1,\"links\":[]}],\"meta\":{\"total\":5,\"page\":0},\"links\":[]}", result.getResponseBody());
+		assertEquals("{\"pessoas\":[{\"nome\":\"Clairton\",\"sobrenome\":\"Heinzen\",\"telefones\":[1,2],\"id\":1,\"links\":[{\"rel\":\"remove\"},{\"rel\":\"update\"},{\"rel\":\"show\"},{\"rel\":\"index\"},{\"rel\":\"edit\"},{\"rel\":\"new\"},{\"rel\":\"create\"}]}],\"meta\":{\"total\":1,\"page\":0},\"links\":[]}", result.getResponseBody());
 	}
 	
 	@Test
 	public void testUpdate() {
-		String json = "{\"pessoa\":{\"nome\":\"Joazinho\",\"sobrenome\":\"Silva\",\"telefones\":[],\"id\":1001,\"links\":[]}}";
+		String json = "{\"pessoa\":{\"nome\":\"Joazinho\",\"sobrenome\":\"Silva\",\"telefones\":[],\"id\":1001,\"links\":[{\"rel\":\"remove\"},{\"rel\":\"update\"},{\"rel\":\"show\"},{\"rel\":\"index\"},{\"rel\":\"edit\"},{\"rel\":\"new\"},{\"rel\":\"create\"}]}}";
 		VRaptorTestResult result = navigate()
 													.to("/pessoas/1001", PUT, new Parameters())
 													.setContent(json)

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Esse é o arquivo principal, cada versão deve ter o seu proprio arquivo, com o nome -->
-<!-- changelog-{v}.xml onde {v} é a versão, para ver mais sobre as versões verifique o README.md-->
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-	<include file="db/changelogs/changelog-0.1.0.xml" />
-	<include file="db/changelogs/changelog-0.3.0.xml" />
+	<changeSet author="Clairton Rodrigo Heinzen clairton.rodrigo@gmail.com" id="0.3.0">
+		<addColumn tableName="pessoas">
+			<column name="nascido_em" type="date">
+			</column>
+		</addColumn>
+	</changeSet>
 </databaseChangeLog>
