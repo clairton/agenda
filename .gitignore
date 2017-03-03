@@ -9,8 +9,6 @@
 */**/*.log
 *.~lock*
 
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
 # compiled output
 /dist
 /tmp
@@ -24,8 +22,11 @@
 /connect.lock
 /coverage/*
 /libpeerconnection.log
+<<<<<<< HEAD
 npm-debug.log
 testem.log
 .checkstyle
 .eclipse-pmd
 
+npm-debug.log*
+testem.log
