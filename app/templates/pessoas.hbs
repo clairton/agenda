@@ -1,3 +1,19 @@
+
 {{outlet}}
 
-{{input value=nome}}
+<label for="filtro-nome">Filtrar por nome</label>
+{{input id="filtro-nome" value=nome}}
+<br/>
+
+<table>
+  <tr>
+    <th>Nome</th>
+  </tr>
+  {{#each model as |pessoa|}}
+    <tr>
+      <td>
+        {{#link-to 'pessoas.pessoa' pessoa.id}}{{pessoa.nome}}{{/link-to}}
+      </td>
+    </tr>
+  {{/each}}
+</table>

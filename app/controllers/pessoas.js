@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
     
-    nome: 'Clairton'
+    nnome: null,
+    queryParams: ['nome'],
 
 });
