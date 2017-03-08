@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
     
-    nnome: null,
+    nome: null,
     queryParams: ['nome'],
 
 });
