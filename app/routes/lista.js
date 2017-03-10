@@ -17,7 +17,7 @@ export default Ember.Route.extend({
     
     actions:{
         nova(){
-            this.transitionTo('pessoas.nova');
+            this.transitionTo('nova');
         }
     }
 });

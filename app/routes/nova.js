@@ -10,7 +10,7 @@ export default Ember.Route.extend({
 		
 		salvar(pessoa){
 			//veremos como salvar a pessoa mais tarde
-			this.transitionToRoute('pessoas');
+			this.transitionTo('pessoas');
 		}			
 		
 	}

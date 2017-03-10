@@ -12,11 +12,8 @@
   {{#each model as |pessoa|}}
     <tr>
       <td>
-        {{#link-to 'pessoas.pessoa' pessoa.id}}{{pessoa.nome}}{{/link-to}}
+        {{#link-to 'pessoa' pessoa.id}}{{pessoa.nome}}{{/link-to}}
       </td>
     </tr>
   {{/each}}
 </table>
-
-
-{{outlet}}
