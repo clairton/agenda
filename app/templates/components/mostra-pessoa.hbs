@@ -1,1 +1,8 @@
 Nome: {{pessoa.nome}} - {{pessoa.sobrenome}}
+<br/>
+
+Telefones:<br/>
+{{#each pessoa.telefones as |telefone|}}
+    ({{telefone.prefixo}}) {{telefone.numero}}
+    <br/>
+{{/each}}
