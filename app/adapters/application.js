@@ -1,7 +1,6 @@
 import DS from 'ember-data';
-import config from '../config/environment';
 
 export default DS.RESTAdapter.extend({
-  namespace: config.namespace,
-  host: config.host
+  host: 'http://agenda.clairton.eti.br',
+  namespace: null
 });
