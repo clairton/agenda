@@ -3,14 +3,16 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
 	model(){
-		return Ember.Object.create({nome: null});
+		return this.get('store').createRecord('pessoa');
 	},
 
 	actions:{
 		
 		salvar(pessoa){
-			//veremos como salvar a pessoa mais tarde
-			this.transitionTo('pessoas');
+			let self = this;
+			pessoa.save().then(() => {
+				self.transitionTo('lista');
+			});
 		}			
 		
 	}
