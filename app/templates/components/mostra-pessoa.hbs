@@ -1,6 +1,11 @@
 Nome: {{pessoa.nome}} - {{pessoa.sobrenome}}
 <br/>
 
+{{#if pessoa.nascidoEm}}
+	Aniversário: {{formata-data pessoa.nascidoEm}}
+	<br/>
+{{/if}}
+
 Telefones:<br/>
 {{#each pessoa.telefones as |telefone|}}
     ({{telefone.prefixo}}) {{telefone.numero}}
