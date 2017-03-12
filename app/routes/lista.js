@@ -10,9 +10,9 @@ export default Ember.Route.extend({
   },
 
     model(params){
-        let filter = {}
+        let filter = {};
         if(!Ember.isEmpty(params.nome)){
-          filter.nome = params.nome
+          filter.nome = params.nome;
         }
         return this.get('store').query('pessoa', filter);
     },
