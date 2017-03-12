@@ -1,4 +1,4 @@
-id,nome
-1001,João
-1002,Maria
-1003,Pedro
+id,nome,sobrenome,nascido_em
+1001,João,Silvia,1990-01-31
+1002,Maria,Pinheiro,1979-10-12
+1003,Pedro,Farias,1987-05-23
