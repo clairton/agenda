@@ -13,7 +13,13 @@ export default Ember.Route.extend({
 			pessoa.save().then(() => {
 				self.transitionTo('lista');
 			});
-		}			
+		}	,     
+
+    removerTelefone(telefone){
+      if(confirm('Você está removendo um telefone, deseja continuar?')){
+        telefone.destroyRecord();
+      }
+    }		
 		
 	}
 });

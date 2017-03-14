@@ -5,4 +5,29 @@
 
 <br/>
 
+<label for="sobrenome">Sobrenome</label>
+{{input id="sobrenome" value=model.sobrenome}}
+
+<br/>
+
+<label for="nascidoEm">Data Nascimento</label>
+{{input id="nascidoEm" value=model.nascidoEm type='date'}}
+
+<br/>
+
+<label for="prefixo">Prefixo</label>
+{{input id="prefixo" value=telefone.prefixo type='number'}}
+<label for="numero">número</label>
+{{input id="numero" value=telefone.numero type='number'}}
+<button {{action 'adicionarTelefone' telefone}}>Adicionar</button>
+
+<br/>
+
+{{#each model.telefones as |telefone|}}
+    ({{telefone.prefixo}}) {{telefone.numero}}
+    <button {{action 'removerTelefone' telefone}}>Remover</button>
+    <br/>
+{{/each}}
+
+
 <button id="salvar" {{action 'salvar' model}}>Salvar</button>
