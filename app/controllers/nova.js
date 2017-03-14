@@ -30,14 +30,11 @@ export default Ember.Controller.extend({
     criarTelefone(){
         let telefone = this.get('store').createRecord('telefone', {});
         this.set('telefone', telefone);
-    },   
+    }, 
 
     adicionarTelefone(telefone){
-      let self = this;
-      telefone.save().then(() => {
-        self.get('model.telefones').pushObject(telefone);
-        self.send('criarTelefone');
-      });
+      this.get('model.telefones').pushObject(telefone);
+      this.send('criarTelefone');
     }
 
   }
