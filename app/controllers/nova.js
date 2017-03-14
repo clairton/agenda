@@ -9,11 +9,15 @@ export default Ember.Controller.extend({
   }),
 
   actions:{
+
+    salvaAoPressionarEnter(){
+      this.send('salvar', this.get('model'));
+    },
     
     salvar(pessoa){
       let self = this;
       pessoa.save().then(() => {
-        self.transitionToRoute('pessoas');
+        self.transitionToRoute('lista');
       });
     },     
 
