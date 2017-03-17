@@ -1,0 +1,31 @@
+<label for="nome">Nome</label>
+{{input id="nome" value=pessoa.nome action='salvarAoPressionarEnter' on='enter'}}
+
+<br/>
+
+<label for="sobrenome">Sobrenome</label>
+{{input id="sobrenome" value=pessoa.sobrenome}}
+
+<br/>
+
+<label for="nascidoEm">Data Nascimento</label>
+{{input id="nascidoEm" value=pessoa.nascidoEm type='date'}}
+
+<br/>
+
+<label for="prefixo">Prefixo</label>
+{{input id="prefixo" value=telefone.prefixo type='number'}}
+<label for="numero">número</label>
+{{input id="numero" value=telefone.numero type='number'}}
+<button {{action 'adicionarTelefone' telefone}}>Adicionar</button>
+
+<br/>
+
+{{#each pessoa.telefones as |telefone|}}
+    ({{telefone.prefixo}}) {{telefone.numero}}
+    <button {{action 'removerTelefone' telefone}}>Remover</button>
+    <br/>
+{{/each}}
+
+
+<button id="salvar" {{action 'salvar' pessoa}}>Salvar</button>
