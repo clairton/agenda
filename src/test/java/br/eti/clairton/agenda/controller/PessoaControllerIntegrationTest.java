@@ -34,5 +34,17 @@ public class PessoaControllerIntegrationTest extends VRaptorIntegration {
 		result.wasStatus(200);
 		assertEquals(json, result.getResponseBody());
 	}
+	
+	
+	@Test
+	public void testCreateInvalid() {
+		String json = "{\"pessoa\":{\"nome\":\"\"}}";
+		VRaptorTestResult result = navigate()
+													.post("/pessoas")
+													.setContent(json)
+													.addHeader("content-type", "application/json")
+													.execute();
+		result.wasStatus(422);
+	}
 
 }

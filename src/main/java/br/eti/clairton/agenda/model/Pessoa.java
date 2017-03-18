@@ -16,6 +16,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import br.eti.clairton.identificator.Identificator;
 import br.eti.clairton.repository.Model;
@@ -25,6 +27,8 @@ import br.eti.clairton.repository.Model;
 public class Pessoa extends Model {
 	private static final long serialVersionUID = 1L;
 
+	@NotNull
+	@Size(min = 1)
 	@Identificator
 	private String nome;
 

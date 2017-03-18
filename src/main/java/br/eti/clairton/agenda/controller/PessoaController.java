@@ -10,10 +10,10 @@ import org.apache.logging.log4j.Logger;
 
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Patch;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
-import br.com.caelum.vraptor.Patch;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.serialization.Serializer;
 import br.com.caelum.vraptor.serialization.gson.WithRoot;
@@ -45,20 +45,23 @@ public class PessoaController  extends AbstractController{
 	}
 
 	@Post
+	@Validate
 	@Path({ "", "/" })
 	@Consumes(value = "application/json", options = WithRoot.class)
-	public void create(Pessoa pessoa) {
-		logger.debug("Salvando pessoa {}", pessoa);
-		pessoa = repository.save(pessoa);
-		final Serializer serializer = result.use(json()).from(pessoa);
-		serializer.serialize();
+	public void create(final Pessoa pessoa) {
+		save(pessoa);
 	}
 
 	@Put
 	@Patch
+	@Validate
 	@Path("/{pessoa.id}")
 	@Consumes(value = "application/json", options = WithRoot.class)
 	public void update(final Pessoa pessoa) {
+		save(pessoa);
+	}
+	
+	protected void save(final Pessoa pessoa) {
 		logger.debug("Salvando pessoa {}", pessoa);
 		final Pessoa saved = repository.save(pessoa);
 		final Serializer serializer = result.use(json()).from(saved);
