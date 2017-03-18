@@ -45,6 +45,7 @@ public class PessoaControllerIntegrationTest extends VRaptorIntegration {
 													.addHeader("content-type", "application/json")
 													.execute();
 		result.wasStatus(422);
+		assertEquals("{\"errors\":{\"nome\":[\"tamanho deve estar entre 1 e 200\"]}}", result.getResponseBody());
 	}
 
 }

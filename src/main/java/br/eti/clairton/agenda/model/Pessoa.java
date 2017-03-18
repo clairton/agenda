@@ -28,7 +28,7 @@ public class Pessoa extends Model {
 	private static final long serialVersionUID = 1L;
 
 	@NotNull
-	@Size(min = 1)
+	@Size(min = 1, max = 200)
 	@Identificator
 	private String nome;
 
