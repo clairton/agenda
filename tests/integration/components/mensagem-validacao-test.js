@@ -1,25 +1,27 @@
+
+//tests/integration/components/mensagem-validacao-test.js
+
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import DS from 'ember-data';
 
 moduleForComponent('mensagem-validacao', 'Integration | Component | mensagem validacao', {
   integration: true
 });
 
-test('it renders', function(assert) {
+test('Deveria mostrar uma mensagem', function(assert) {
+  let erros = DS.Errors.create();
+  erros.add('nome', 'Nome Obrigatório');
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set('nomeDaPessoaObrigatorio', erros);
 
-  this.render(hbs`{{mensagem-validacao}}`);
+  this.render(hbs`{{mensagem-validacao erros=nomeDaPessoaObrigatorio}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#mensagem-validacao}}
-      template block text
-    {{/mensagem-validacao}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('.erro').length, 1);
+  assert.equal(this.$('.erro').text().trim(), 'Nome Obrigatório');
 });
+
+
+
+
+  
