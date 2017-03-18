@@ -1,3 +1,6 @@
+
+//tests/acceptance/nova-test.js
+
 import { test } from 'qunit';
 import moduleForAcceptance from 'agenda/tests/helpers/module-for-acceptance';
 

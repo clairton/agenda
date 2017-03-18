@@ -1,16 +1,18 @@
+{{!app/templates/componets/formulario-pessoa.hbs}}
+
 <label for="nome">Nome</label>
 {{input id="nome" value=pessoa.nome action='salvarAoPressionarEnter' on='enter'}}
-
+{{mensagem-validacao erros=pessoa.errors.nome}}
 <br/>
 
 <label for="sobrenome">Sobrenome</label>
 {{input id="sobrenome" value=pessoa.sobrenome}}
-
+{{mensagem-validacao erros=pessoa.errors.sobrenome}}
 <br/>
 
 <label for="nascidoEm">Data Nascimento</label>
 {{input id="nascidoEm" value=pessoa.nascidoEm type='date'}}
-
+{{mensagem-validacao erros=pessoa.errors.nascidoEm}}
 <br/>
 
 <label for="prefixo">Prefixo</label>
