@@ -1,19 +1,29 @@
-<button {{action 'nova'}}>Nova</button>
-<br/>
+{{!app/templates/lista.hbs}}
 
-<label for="filtro-nome">Filtrar por nome</label>
-{{input id="filtro-nome" value=nome}}
-<br/>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-6 col-lg-6">
+    <label for="filtro-nome">Filtrar por nome</label>
+    {{input id="filtro-nome" class="form-control" value=nome}}
+  </div>
+  <div class="col-xs-offset-1 col-xs-3 col-sm-offset-2 col-sm-2 col-md-offset-4 col-md-2 col-lg-offset-4 col-lg-2">
+    <label>&nbsp;</label>
+    <button {{action 'nova'}} id="nova" class="form-control" type="button">Nova</button> 
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Nome</th>
-  </tr>
-  {{#each model as |pessoa|}}
+<table class="table table-striped">
+  <thead>
     <tr>
-      <td>
-        {{#link-to 'pessoa' pessoa.id}}{{pessoa.nome}}{{/link-to}}
-      </td>
+      <th>Nome</th>
     </tr>
-  {{/each}}
+  </thead>
+  <tbody>
+    {{#each model as |pessoa|}}
+      <tr>
+        <td>
+          {{#link-to 'pessoa' pessoa.id}}{{pessoa.nome}}{{/link-to}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
 </table>
