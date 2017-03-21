@@ -1,33 +1,70 @@
+
 {{!app/templates/componets/formulario-pessoa.hbs}}
 
-<label for="nome">Nome</label>
-{{input id="nome" value=pessoa.nome action='salvarAoPressionarEnter' on='enter'}}
-{{mensagem-validacao erros=pessoa.errors.nome}}
-<br/>
+<div class="row">
+	<label for="nome">Nome</label>
+	{{input class="form-control" id="nome" value=pessoa.nome action='salvarAoPressionarEnter' on='enter'}}
+	{{mensagem-validacao erros=pessoa.errors.nome}}
+</div>
 
-<label for="sobrenome">Sobrenome</label>
-{{input id="sobrenome" value=pessoa.sobrenome}}
-{{mensagem-validacao erros=pessoa.errors.sobrenome}}
-<br/>
+<div class="row">
+	<label for="sobrenome">Sobrenome</label>
+	{{input class="form-control" id="sobrenome" value=pessoa.sobrenome}}
+	{{mensagem-validacao erros=pessoa.errors.sobrenome}}
+</div>
 
-<label for="nascidoEm">Data Nascimento</label>
-{{input id="nascidoEm" value=pessoa.nascidoEm type='date'}}
-{{mensagem-validacao erros=pessoa.errors.nascidoEm}}
-<br/>
+<div class="row">
+	<label for="nascidoEm">Data Nascimento</label>
+	{{input class="form-control" id="nascidoEm" value=pessoa.nascidoEm type='date'}}
+	{{mensagem-validacao erros=pessoa.errors.nascidoEm}}
+</div>
 
-<label for="prefixo">Prefixo</label>
-{{input id="prefixo" value=telefone.prefixo type='number'}}
-<label for="numero">número</label>
-{{input id="numero" value=telefone.numero type='number'}}
-<button {{action 'adicionarTelefone' telefone}}>Adicionar</button>
+<div class="row">
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+    <label for="prefixo">Prefixo</label>
+    {{input class="form-control" id="prefixo" value=telefone.prefixo type='number'}}
+    {{mensagem-validacao erros=telefone.errors.prefixo}}
+  </div>
 
-<br/>
+  <div class="col-xs-7 col-sm-7 col-md-3 col-lg-2">
+    <label for="numero">Número</label>
+    {{input class="form-control" id="numero" value=telefone.numero type='number'}}
+    {{mensagem-validacao erros=telefone.errors.numero}}
+  </div>
+
+  <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+    <label>&nbsp;</label>
+    <button class="btn btn-default form-control" {{action 'adicionarTelefone' telefone}}>
+      Adicionar
+    </button>
+  </div>  
+</div>
 
 {{#each pessoa.telefones as |telefone|}}
-    ({{telefone.prefixo}}) {{telefone.numero}}
-    <button {{action 'removerTelefone' telefone}}>Remover</button>
-    <br/>
+  <div class="row">
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+      <label>Prefixo</label>
+      {{input class="form-control" value=telefone.prefixo type='number'}}
+    </div>
+
+    <div class="col-xs-7 col-sm-7 col-md-3 col-lg-2">
+      <label>Número</label>
+      {{input class="form-control" value=telefone.numero type='number'}}
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+      <label>&nbsp;</label>
+      <button class="btn btn-danger form-control" {{action 'removerTelefone' telefone}}>
+        Remover
+      </button>
+    </div>
+  </div>
 {{/each}}
 
-
-<button id="salvar" {{action 'salvar' pessoa}}>Salvar</button>
+<div class="row">
+  <div class="col-xs-offset-9 col-xs-3 col-sm-offset-9 col-sm-3 col-md-offset-10 col-md-2 col-lg-offset-10 col-lg-2">
+    <label>&nbsp;</label>
+    <button id="salvar" class="btn btn-primary form-control" {{action 'salvar' pessoa}}>
+      Salvar
+    </button>
+  </div>
+</div>

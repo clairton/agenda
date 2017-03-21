@@ -1,13 +1,23 @@
-Nome: {{pessoa.nome}} - {{pessoa.sobrenome}}
-<br/>
+
+{{!app/components/mostra-pessoa.hbs}}
+
+<div class="row">
+	<label>Nome:</label> {{pessoa.nome}} {{pessoa.sobrenome}}
+</div>
 
 {{#if pessoa.nascidoEm}}
-	Aniversário: {{formata-data pessoa.nascidoEm}}
-	<br/>
+	<div class="col-xs-12 col-sm-6 col-md-3 col-md-2">
+		<label>Aniversário:</label> {{formata-data pessoa.nascidoEm}}
+	</div>
 {{/if}}
 
-Telefones:<br/>
-{{#each pessoa.telefones as |telefone|}}
-    ({{telefone.prefixo}}) {{telefone.numero}}
-    <br/>
-{{/each}}
+<div class="row">
+	<div class="col-xs-12 col-sm-6 col-md-3 col-md-2">
+		<label>Telefones:</label>
+	</div>
+	{{#each pessoa.telefones as |telefone|}}
+		<div class="col-xs-12 col-sm-6 col-md-3 col-md-2">
+	    	({{telefone.prefixo}}) {{telefone.numero}}
+	    </div>
+	{{/each}}
+</div>
