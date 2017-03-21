@@ -1,8 +1,11 @@
-
 {{!app/templates/components/mensagem-validacao.hbs}}
 
 {{#each erros as |erro|}}
-
-    <div class='erro'>{{erro.message}}</div><br/>
+    
+    <div class="erro alert alert-warning" role="alert">{{erro.message}}
+	    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	      <span aria-hidden="true">&times;</span>
+	    </button>
+    </div>
 
 {{/each}}
