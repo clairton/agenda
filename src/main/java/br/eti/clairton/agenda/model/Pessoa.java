@@ -40,7 +40,7 @@ public class Pessoa extends Model {
 	@Column(name = "nascido_em")
 	private Date nascidoEm;
 
-	@OneToMany(fetch = EAGER, cascade = ALL)
+	@OneToMany(fetch = EAGER, cascade = ALL, orphanRemoval = true)
 	@JoinTable(name = "pessoas_telefones", joinColumns = @JoinColumn(name = "pessoa_id"), inverseJoinColumns = @JoinColumn(name = "telefone_id"))
 	private Collection<Telefone> telefones = new ArrayList<>();
 
@@ -76,5 +76,9 @@ public class Pessoa extends Model {
 
 	public void adicionar(final Telefone telefone) {
 		telefones.add(telefone);
+	}
+	
+	public void remover(final Telefone telefone) {
+		telefones.remove(telefone);
 	}
 }

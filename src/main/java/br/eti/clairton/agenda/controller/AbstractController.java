@@ -48,9 +48,7 @@ public abstract class AbstractController {
 	@Delete
 	@Path({ "/{id}" })
 	public void remove(Long id) {
-		logger.debug("Removendo {} id {}", tag(), id);
-		repository.remove(type(), id);
-		result.use(http()).setStatusCode(204);
+		removeAndSerialize(id);
 	}
 
 
@@ -80,6 +78,12 @@ public abstract class AbstractController {
 		final Object object = repository.byId(type(), id);
 		final Serializer serializer = result.use(json()).from(object);
 		serializer.serialize();
+	}
+	
+	protected void removeAndSerialize(Long id){
+		logger.debug("Removendo {} id {}", tag(), id);
+		repository.remove(type(), id);
+		result.use(http()).setStatusCode(204);
 	}
 	
 	protected abstract Class<?> type();

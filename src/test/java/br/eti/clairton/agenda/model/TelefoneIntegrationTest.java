@@ -24,6 +24,6 @@ public class TelefoneIntegrationTest {
 	
 	@Test
 	public void testCount() {
-		assertEquals(Long.valueOf(10l), repository.from(Telefone.class).count());
+		assertEquals(Long.valueOf(7l), repository.from(Telefone.class).count());
 	}
 }
