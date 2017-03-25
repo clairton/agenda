@@ -6,7 +6,7 @@ import Config from 'agenda/config/environment';
 
 export default DS.RESTAdapter.extend({
   host: Config.host,
-  namespace: Config.namespace
+  namespace: Config.namespace,
   coalesceFindRequests: true,
 
   handleResponse(status, headers, payload) {
