@@ -1,8 +1,12 @@
+//app/adapters/application.js
+
 import DS from 'ember-data';
 
+import Config from 'agenda/config/environment';
+
 export default DS.RESTAdapter.extend({
-  host: 'http://agenda.clairton.eti.br',
-  namespace: null,
+  host: Config.host,
+  namespace: Config.namespace
   coalesceFindRequests: true,
 
   handleResponse(status, headers, payload) {

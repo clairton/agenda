@@ -2,6 +2,8 @@
 
 module.exports = function(environment) {
   var ENV = {
+    host: 'http://agenda.clairton.eti.br',
+    namespace: null,
     modulePrefix: 'agenda',
     environment: environment,
     rootURL: '/',
