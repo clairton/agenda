@@ -63,6 +63,7 @@ public class PessoaController  extends AbstractController{
 	
 	protected void save(final Pessoa pessoa) {
 		logger.debug("Salvando pessoa {}", pessoa);
+		repository.save(pessoa.getTelefones());
 		final Pessoa saved = repository.save(pessoa);
 		final Serializer serializer = result.use(json()).from(saved);
 		serializer.serialize();

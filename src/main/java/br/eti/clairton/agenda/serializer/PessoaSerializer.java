@@ -26,12 +26,12 @@ public class PessoaSerializer extends HypermediableSerializer<Pessoa> implements
 	}
 
 	@Override
-	public String getResource(Pessoa src) {
+	public String getResource(final Pessoa src) {
 		return "pessoa";
 	}
 
 	@Override
-	public String getOperation(Pessoa src) {
+	public String getOperation(final Pessoa src) {
 		return "index";
 	}
 }
