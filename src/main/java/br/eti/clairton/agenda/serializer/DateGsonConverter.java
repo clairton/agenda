@@ -21,8 +21,8 @@ import com.google.gson.JsonSyntaxException;
 @Specializes
 public class DateGsonConverter extends br.com.caelum.vraptor.serialization.gson.DateGsonConverter
 	implements JsonDeserializer<Date>, JsonSerializer<Date>{
-	private final DateFormat datetime = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-	private final DateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+	private final DateFormat datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:sss");
+	private final DateFormat date = new SimpleDateFormat("yyyy-MM-dd");
 	
 	@Override
 	public Date deserialize(final JsonElement json, final Type typeOfT, final JsonDeserializationContext context) throws JsonParseException {

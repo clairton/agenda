@@ -13,19 +13,19 @@ import com.google.gson.JsonPrimitive;
 
 public class DateGsonConverterTest {
 	private final DateGsonConverter serializer = new DateGsonConverter();
-	private final DateFormat datetime = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-	private final DateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+	private final DateFormat datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:sss");
+	private final DateFormat date = new SimpleDateFormat("yyyy-MM-dd");
 
 	@Test
 	public void testDateTime() throws Exception {
-		final String data = "15/12/2012 13:59";
+		final String data = "2012-12-15 13:59:201";
 		final Date object = serializer.deserialize(new JsonPrimitive(data), Date.class, null);
 		assertEquals(datetime.parse(data), object);
 	}
 
 	@Test
 	public void testDate() throws Exception {
-		final String data = "15/12/2012";
+		final String data = "2012-12-15";
 		final Date object = serializer.deserialize(new JsonPrimitive(data), Date.class, null);
 		assertEquals(date.parse(data), object);
 	}
