@@ -25,14 +25,14 @@ public class PessoaControllerIntegrationTest extends VRaptorIntegration {
 	
 	@Test
 	public void testUpdate() {
-		String json = "{\"pessoa\":{\"nome\":\"Joazinho\",\"sobrenome\":\"Silva\",\"telefones\":[{\"id\":1001,\"prefixo\":49,\"numero\":88888888}],\"id\":1001,\"links\":[{\"rel\":\"remove\"},{\"rel\":\"update\"},{\"rel\":\"show\"},{\"rel\":\"index\"},{\"rel\":\"edit\"},{\"rel\":\"new\"},{\"rel\":\"create\"}]}}";
+		String json = "{\"pessoa\":{\"nome\":\"Joazinho\",\"sobrenome\":\"Silva\",\"telefones\":[],\"id\":1001,\"links\":[{\"rel\":\"remove\"},{\"rel\":\"update\"},{\"rel\":\"show\"},{\"rel\":\"index\"},{\"rel\":\"edit\"},{\"rel\":\"new\"},{\"rel\":\"create\"}]}}";
 		VRaptorTestResult result = navigate()
 													.to("/pessoas/1001", PUT, new Parameters())
 													.setContent(json)
 													.addHeader("content-type", "application/json")
 													.execute();
 		result.wasStatus(200);
-		assertEquals("{\"pessoa\":{\"nome\":\"Joazinho\",\"sobrenome\":\"Silva\",\"telefones\":[1001],\"id\":1001,\"links\":[{\"rel\":\"remove\"},{\"rel\":\"update\"},{\"rel\":\"show\"},{\"rel\":\"index\"},{\"rel\":\"edit\"},{\"rel\":\"new\"},{\"rel\":\"create\"}]}}", result.getResponseBody());
+		assertEquals(json, result.getResponseBody());
 	}
 	
 	
