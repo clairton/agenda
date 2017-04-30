@@ -1,3 +1,10 @@
-
+{{!app/templates/application.hbs}}
 
 {{outlet}}
+
+{{input value=nome}}<br/>
+
+{{#each model as |pessoa|}}
+  <label for="nome">Nome:</label>
+  {{pessoa.nome}}<br/>
+{{/each}}
