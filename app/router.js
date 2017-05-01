@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('lista');
+  this.route('lista', {path: '/'});
   this.route('pessoa', {path: ':id'});
 
   this.route('nova');
