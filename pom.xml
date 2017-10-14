@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.eti.clairton</groupId>
 	<artifactId>agenda</artifactId>
-	<version>0.3.0</version>
+	<version>0.4.0</version>
 	<packaging>war</packaging>
 
 	<prerequisites>
@@ -11,6 +11,17 @@
 	</prerequisites>
 
 	<properties>
+
+		<agenda.datasource.class>org.hsqldb.jdbc.JDBCDataSource</agenda.datasource.class>
+    <agenda.datasource.url>jdbc:hsqldb:mem:agenda</agenda.datasource.url>
+    <agenda.datasource.user>sa</agenda.datasource.user>
+    <agenda.datasource.password></agenda.datasource.password>
+    <agenda.datasource.pool.max>10</agenda.datasource.pool.max>
+    <agenda.datasource.pool.initial>2</agenda.datasource.pool.initial>
+    <agenda.datasource.pool.min>5</agenda.datasource.pool.min>
+    <agenda.datasource.isolation.level>TRANSACTION_READ_COMMITTED</agenda.datasource.isolation.level>
+    <agenda.datasource.max.idle.time>300</agenda.datasource.max.idle.time>
+
 		<weld.version>2.2.8.Final</weld.version>
 		<jetty.version>9.2.3.v20140905</jetty.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -194,6 +205,12 @@
 			</exclusions>
 		</dependency>
 		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>${hsqldb.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
@@ -260,18 +277,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<version>${hsqldb.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>9.4-1201-jdbc41</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.jboss</groupId>
 			<artifactId>jandex</artifactId>
 			<version>1.2.2.Final</version>
@@ -291,7 +296,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>${project.artifactId}${name.suffix}</finalName>
+		 <finalName>ROOT</finalName>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -305,6 +310,15 @@
 			</resource>
 		</resources>
 		<plugins>
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<configuration>
+					<appName>agend4</appName>
+					<jdkVersion>1.8</jdkVersion>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.wildfly.plugins</groupId>
 				<artifactId>wildfly-maven-plugin</artifactId>
@@ -647,27 +661,27 @@
 	     <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
 	     <id>openshift</id>
 	     <build>
-	        <finalName>exemplo</finalName>
+	        <finalName>agenda</finalName>
 	        <plugins>
 	          <plugin>
-	                <groupId>org.apache.maven.plugins</groupId>
-	                <artifactId>maven-war-plugin</artifactId>
-	                <version>2.3</version>
-	                <configuration>
-						<!-- Tira as versões dos arquivos -->
-						<outputFileNameMapping>@{artifactId}@.@{extension}@</outputFileNameMapping>
-	                    <failOnMissingWebXml>false</failOnMissingWebXml>
-	                    <outputDirectory>deployments</outputDirectory>
-	              		<warName>ROOT</warName>
-						<webResources>
-							<!-- Arquivos configuração subtituindo as variaveis -->
-							<resource>
-								<directory>${basedir}/src/main/webapp/WEB-INF</directory>
-								<filtering>true</filtering>
-								<targetPath>WEB-INF</targetPath>
-							</resource>
-						</webResources>
-	                </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+	              <configuration>
+									<!-- Tira as versões dos arquivos -->
+									<outputFileNameMapping>@{artifactId}@.@{extension}@</outputFileNameMapping>
+	                <failOnMissingWebXml>false</failOnMissingWebXml>
+	                <outputDirectory>deployments</outputDirectory>
+	              	<warName>ROOT</warName>
+									<webResources>
+										<!-- Arquivos configuração subtituindo as variaveis -->
+										<resource>
+											<directory>${basedir}/src/main/webapp/WEB-INF</directory>
+											<filtering>true</filtering>
+											<targetPath>WEB-INF</targetPath>
+										</resource>
+									</webResources>
+	              </configuration>
 	            </plugin>
 	        </plugins>
 	      </build>
